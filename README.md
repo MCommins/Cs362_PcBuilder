@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The perpose of this project is to create a simple PC builder website.
 
-Things you may want to cover:
+Things this app uses: 
+* Ruby
+* Rails
 
-* Ruby version
 
-* System dependencies
+How to run the test suit:
+  ensure that your terminal is in the directory of the project. from there you will run 'rspec'. At that point, rails will start the test suit and inform the tester of any fails or issues. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Creators: Devon Crane, Nick Newell
