@@ -1,8 +1,8 @@
 class Part
-	def initialize(Name, Type, Compatibility)
-		@name = Name
-		@type = Type
-		@compatibility = Compatibility
+	def initialize(name, type, compatibility)
+		@name = name
+		@type =type
+		@compatibility = compatibility
 	end
 	
 	def name
