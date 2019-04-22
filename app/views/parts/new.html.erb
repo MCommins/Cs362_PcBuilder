@@ -1,0 +1,12 @@
+<h1>New List</h1>
+  <%= form_for(@part) do |t| %>
+    <%= t.label(:name) %>
+    <%= t.text_field(:name) %>
+    <br />
+    <%= t.label(:part) %>
+    <%= t.text_field(:part) %>
+    <br />
+    <%= t.label(:compatability) %>
+    <%= t.text_field(:compatability) %>
+    <%= t.submit %>
+<% end %>
