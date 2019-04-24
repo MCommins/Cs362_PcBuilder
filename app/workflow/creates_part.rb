@@ -6,7 +6,7 @@ class CreatesPart
     @name = name
     @part = part
     @compatability = compatability
-    @success = true
+    @success = false
   end
 
   def create 
