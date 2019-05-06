@@ -1,0 +1,10 @@
+<h1>Compare Prarts</h1>
+
+<%= form_for(@compare) do |t| %>
+    <%= select("part", "part_name", Part.all.collect {|p| [ p.name, p.compatability ] }, {prompt: 'Select a part...'}) %>
+    <br />
+    <%= select("part", "part_name", Part.all.collect {|p| [ p.name, p.compatability ] }, {prompt: 'Select a part...'}) %>
+    <br />
+    <%= select("part", "part_name", Part.all.collect {|p| [ p.name, p.compatability ] }, {prompt: 'Select a part...'}) %>
+    <%= t.submit %>
+<% end %>
