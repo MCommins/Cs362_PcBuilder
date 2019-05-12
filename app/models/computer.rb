@@ -1,7 +1,8 @@
-class Computer
-  def initialize
-    @parts = []
+class Computer < ApplicationRecord
+  def initialize(list)
+    @parts = list
   end
+  
   
   def add_part(part)
     if part == nil

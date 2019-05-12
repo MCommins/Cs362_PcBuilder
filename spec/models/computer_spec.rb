@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Computer, type: :model do
-  
   it "can add parts" do
-	compy = Computer.new()
+	compy = Computer.new([])
 	partA = Part.new(name: "fake", part: "part", compatability: 1)
 	compy.add_part(partA)
 	
@@ -12,7 +11,7 @@ RSpec.describe Computer, type: :model do
   
   it "doesn't allow NULL entries" do
     # uses the custom matcher "return_an_error"
-    compy = Computer.new()
+    compy = Computer.new([])
 	expect(compy.add_part(nil)).to return_an_error
   end
   
@@ -20,7 +19,7 @@ RSpec.describe Computer, type: :model do
     # there are some things like RAM, video cards, or even CPUs that
 	# a computer can have duplicates of. If we want, we can later 
 	# filter things out like motherboards that should be a one-of
-	compy = Computer.new()
+	compy = Computer.new([])
     partA = Part.new(name: "fake", part: "part", compatability: 1)
 	
 	compy.add_part(partA)
@@ -30,7 +29,7 @@ RSpec.describe Computer, type: :model do
   
   
   it "can check the compatability of parts inside it" do
-    compy = Computer.new()
+    compy = Computer.new([])
     partA = Part.new(name: "fake", part: "part", compatability: 1)
 	partB = Part.new(name: "other fake", part: "other part", compatability: 1)
 	
@@ -44,5 +43,4 @@ RSpec.describe Computer, type: :model do
 	compy.add_part(partC)
 	expect(compy.valid?).to be_falsey
   end
-  
 end
