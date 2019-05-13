@@ -1,7 +1,9 @@
 class Computer < ApplicationRecord
-  def initialize(list)
-    @parts = list
-  end
+  validates :name, presence: true
+  validates :owner, presence: true
+  #serialize works, validate doesn't. If parts is missing, I get undefined method for the array append (<<)
+  validates :parts, presence: true
+  serialize :parts
   
   
   def add_part(part)
@@ -9,12 +11,12 @@ class Computer < ApplicationRecord
 	  return "ERROR: Cannot add nothing"
 	end
 	
-    @parts << part
+    self.parts << part
 	return nil
   end
   
   def sizeOf
-    return @parts.count
+    return self.parts.count
   end
   
   def valid?
@@ -22,7 +24,7 @@ class Computer < ApplicationRecord
 	# if all parts have the same compatability number, then we
 	# have a valid PC. if the count of unique vals is greater
 	# than 1, there's a part that isn't compatible.
-    if (@parts.uniq{|x| x.compatability}.count > 1)
+    if (self.parts.uniq{|x| x.compatability}.count > 1)
 	  return false
 	end
 	return true
