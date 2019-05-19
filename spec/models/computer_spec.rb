@@ -1,17 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Computer, type: :model do
-
+  let(:partA) {FactoryBot.build_stubbed(:part, :compatability2, :part1, :asus)}
+  let(:partB) {FactoryBot.build_stubbed(:part, :compatability2, :part2, :gygabite)}
+  let(:partC) {FactoryBot.build_stubbed(:part, :compatability3, :part3, :amd)}
+  let(:compyA) {FactoryBot.build_stubbed(:computer)}
+  let(:compyB) {FactoryBot.build_stubbed(:computer, :owner1, :myPC)}
+  let(:compyC) {FactoryBot.build_stubbed(:computer, :owner1, :myPC, parts: [partA, partB])}
+  
   describe "computer unit tests" do 
-    let(:partA) {FactoryBot.build_stubbed(:part, :compatability2, :part1, :asus)}
-    let(:partB) {FactoryBot.build_stubbed(:part, :compatability2, :part2, :gygabite)}
-    let(:partC) {FactoryBot.build_stubbed(:part, :compatability3, :part3, :amd)}
-	let(:compyA) {FactoryBot.build_stubbed(:computer)}
-	let(:compyB) {FactoryBot.build_stubbed(:computer, :owner1, :myPC)}
-	let(:compyC) {FactoryBot.build_stubbed(:computer, :owner1, :myPC, parts: [partA, partB])}
-
-
-
     it "can add parts" do
   	  compyA.add_part(partA)
   	  expect(compyA.sizeOf).to eql(1)
@@ -46,6 +43,16 @@ RSpec.describe Computer, type: :model do
   	  expect(compyC.sizeOf).to eql(2)
 	  expect(compyC.valid?).to be_truthy
     end
+  end
+  
+  describe "requires big_dependency", :focus do
+    it "checks the dependency" do
+  	  compyA.add_part(partA)
+	  result = compyA.performanceCheck(BigDependency.new)
+  	  expect(result).to eql(69)
+    end
+	
+	
   end
 end
   

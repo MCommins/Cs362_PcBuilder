@@ -29,4 +29,9 @@ class Computer < ApplicationRecord
 	end
 	return true
   end
+  
+  def performanceCheck(big_dependency)
+    big_dependency.execute
+    return 69
+  end
 end
