@@ -23,6 +23,11 @@ class Part < ApplicationRecord
     return true;
   end
         
+  def perform(big_dependency)
+    big_dependency.execute
+    return 42
+  end
+  
 end
 
 =begin

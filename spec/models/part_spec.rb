@@ -33,4 +33,24 @@ RSpec.describe Part, type: :model do
 
   end 
 
+  describe "unit test for Big_dependency" do
+    let(:parta) {FactoryBot.build_stubbed(:part, :compatability2, :part1, :asus)}
+
+    #it "gets value from performace that is 42" do
+      #expect(parta.perform(BigDependency.new)).to eq(42)
+    #end
+    
+    it "gets value from perform with out waiting (mock)" do
+      expect(parta).to receive(:perform).and_return(42)
+      result = parta.perform(BigDependency.new)
+    end
+
+    it "stubs parta" do 
+      allow(parta).to receive(:perform).and_return(42)
+      result = parta.perform(BigDependency.new)
+      expect(result).to eq(42)
+    end
+
+  end
+
 end
