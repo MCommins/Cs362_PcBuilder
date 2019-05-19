@@ -39,18 +39,32 @@ RSpec.describe Computer, type: :model do
   	  expect(compyB.valid?).to be_falsey
     end
 	
-	it "can start with parts inside it" do
+    it "can start with parts inside it" do
   	  expect(compyC.sizeOf).to eql(2)
-	  expect(compyC.valid?).to be_truthy
+      expect(compyC.valid?).to be_truthy
     end
   end
   
+  #to test everything, remove ":focus"
   describe "requires big_dependency", :focus do
-    it "checks the dependency" do
-  	  compyA.add_part(partA)
-	  result = compyA.performanceCheck(BigDependency.new)
-  	  expect(result).to eql(69)
+    # it "checks the dependency" do
+  	  # compyA.add_part(partA)
+      # result = compyA.performanceCheck(BigDependency.new)
+  	  # expect(result).to eql(69)
+    # end
+	
+    it "checks the dependency but with a mock" do
+      expect(compyA).to receive(:performanceCheck).and_return(69)
+      result = compyA.performanceCheck(BigDependency.new)
+
     end
+	
+    it "checks the dependency but with a stub" do
+      allow(compyA).to receive(:performanceCheck).and_return(69)
+      result = compyA.performanceCheck(BigDependency.new)
+      expect(result).to eql(69)
+    end
+	
 	
 	
   end
