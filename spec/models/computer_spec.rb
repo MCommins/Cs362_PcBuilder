@@ -56,7 +56,6 @@ RSpec.describe Computer, type: :model do
     it "checks the dependency but with a mock" do
       expect(compyA).to receive(:performanceCheck).and_return(69)
       result = compyA.performanceCheck(BigDependency.new)
-
     end
 	
     it "checks the dependency but with a stub" do
@@ -65,8 +64,21 @@ RSpec.describe Computer, type: :model do
       expect(result).to eql(69)
     end
 	
+	it "checks the dependency but with a fake" do
+      fakeDependency = double()
+      expect(fakeDependency).to receive(:execute).and_return(nil)
+      result = compyA.performanceCheck(fakeDependency)
+      expect(result).to eql(69)
+    end
 	
-	
+    it "checks the dependency but with multiple fakes" do
+      fakeCompy = double()
+      expect(fakeCompy).to receive(:performanceCheck).and_return(69)
+      fakeDependency = double()
+
+      result = fakeCompy.performanceCheck(fakeDependency)
+      expect(result).to eql(69)
+    end
   end
 end
   
