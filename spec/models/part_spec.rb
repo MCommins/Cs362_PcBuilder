@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-require "rails_helper"
-
-RSpec.describe Part do 
-
-  let(:part) { Part.new("Sapphire 580", "GPU", 3) }
-
-  it "has a name" do 
-    expect(part.name).to be_a(String)
-  end
-
-  it "has a meaningful compatibility number" do
-    expect(part.compatibility).to be_a(Integer)
-	expect(part.compatibility).to be >= 0
-  end
-
-end
-=======
 require 'rails_helper'
 
 RSpec.describe Part, type: :model do
@@ -72,4 +54,3 @@ RSpec.describe Part, type: :model do
   end
 
 end
->>>>>>> 958655b0d0ce8f00f1cde7d8b48c03fe4bb7e13c

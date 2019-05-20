@@ -46,7 +46,7 @@ RSpec.describe Computer, type: :model do
   end
   
   #to test everything, remove ":focus"
-  describe "requires big_dependency", :focus do
+  describe "requires big_dependency" do
     # it "checks the dependency" do
   	  # compyA.add_part(partA)
       # result = compyA.performanceCheck(BigDependency.new)
