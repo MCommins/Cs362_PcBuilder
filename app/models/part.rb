@@ -1,17 +1,57 @@
-class Part
-	def initialize(Name, Type, Compatibility)
-		@name = Name
-		@type = Type
-		@compatibility = Compatibility
-	end
-	
-	def name
-		@name
-	end
-	def type
-		@type
-	end
-	def compatibility
-		@compatibility
-	end
+class Part < ApplicationRecord
+
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :part, presence: true
+  validates :compatability, presence: true, numericality: { greater_than: 0 }
+
+  def compare (parta, partb)
+    if(parta == nil || partb == nil)
+      return false;
+    else 
+      if(parta.name == name || partb.name == name || parta.name == partb.name)
+        return false;
+      else
+        if(parta.part == part || partb.part == part || parta.part == partb.part)
+          return false;
+        else
+          if(parta.compatability != compatability || partb.compatability != compatability || parta.compatability != partb.compatability)
+            return false;
+          end
+        end
+      end
+    end
+    return true;
+  end
+        
+  def perform(big_dependency)
+    big_dependency.execute
+    return 42
+  end
+  
 end
+
+=begin
+
+
+  if(parta == NULL || partb == NULL)
+      return false;
+    else
+      if(parta.name == name || partb.name == name)
+        return false;
+      else 
+        if(parta.part == part || partb.part == part)
+          return false;
+        else  
+          if (parta.compatability == compatability && partb.compatability == compatability)
+            return true;
+          end
+        end
+      end
+    end
+    
+    return true;
+  end
+        
+end
+
+=end
