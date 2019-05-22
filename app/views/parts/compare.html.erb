@@ -1,4 +1,4 @@
-<h1>Compare Prarts</h1>
+<h1>Compare Parts</h1>
 
 <%= form_for(@compare) do |t| %>
     <%= select("part", "part_name", Part.all.collect {|p| [ p.name, p.compatability ] }, {prompt: 'Select a part...'}) %>
