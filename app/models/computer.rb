@@ -1,6 +1,6 @@
 class Computer < ApplicationRecord
   validates :name, presence: true
-  validates :owner, presence: true
+  validates :account, presence: true
   #serialize works, validate doesn't. If parts is missing, I get undefined method for the array append (<<)
   validates :parts, presence: true
   serialize :parts
