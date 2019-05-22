@@ -6,7 +6,7 @@ RSpec.describe "adding parts to the list", type: :system do
     visit new_part_path
     fill_in "Name", with: "Saphire Tech"
     fill_in "Part", with: "Graphics Card"
-    fill_in "Compatability", with: 3
+    fill_in "Compatibility", with: 3
     click_on("Create Part")
     expect(page).to have_content("Saphire Tech")
     expect(page).to have_content("Graphics Card")
@@ -17,13 +17,13 @@ RSpec.describe "adding parts to the list", type: :system do
     visit new_part_path
     fill_in "Name", with: "AMD Ryzen 2700X"
     fill_in "Part", with: "CPU"
-    fill_in "Compatability", with: 3
+    fill_in "Compatibility", with: 3
     click_on("Create Part")
 	
 	visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
-    fill_in "Compatability", with: 7
+    fill_in "Compatibility", with: 7
     click_on("Create Part")
 	
 	expect(page).to have_content("AMD Ryzen 2700X")
@@ -55,7 +55,7 @@ RSpec.describe "adding parts to the list", type: :system do
 	visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
-    fill_in "Compatability", with: -1
+    fill_in "Compatibility", with: -1
     click_on("Create Part")
 	
     expect(page).to have_text("prohibited this list from being saved")
@@ -65,7 +65,7 @@ RSpec.describe "adding parts to the list", type: :system do
 	visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
-    fill_in "Compatability", with: "TEST"
+    fill_in "Compatibility", with: "TEST"
     click_on("Create Part")
 	
     expect(page).to have_text("prohibited this list from being saved")
@@ -75,13 +75,13 @@ RSpec.describe "adding parts to the list", type: :system do
     visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
-    fill_in "Compatability", with: 7
+    fill_in "Compatibility", with: 7
     click_on("Create Part")
 	
 	visit new_part_path
     fill_in "Name", with: "asus x470"
     fill_in "Part", with: "Motherboard"
-    fill_in "Compatability", with: 15
+    fill_in "Compatibility", with: 15
     click_on("Create Part")
 	
 	expect(page).to have_text("prohibited this list from being saved")

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Computer, type: :model do
-  let(:partA) {FactoryBot.build_stubbed(:part, :compatability2, :part1, :asus)}
-  let(:partB) {FactoryBot.build_stubbed(:part, :compatability2, :part2, :gygabite)}
-  let(:partC) {FactoryBot.build_stubbed(:part, :compatability3, :part3, :amd)}
+  let(:partA) {FactoryBot.build_stubbed(:part, :compatibility2, :part1, :asus)}
+  let(:partB) {FactoryBot.build_stubbed(:part, :compatibility2, :part2, :gygabite)}
+  let(:partC) {FactoryBot.build_stubbed(:part, :compatibility3, :part3, :amd)}
   let(:compyA) {FactoryBot.build_stubbed(:computer)}
   let(:compyB) {FactoryBot.build_stubbed(:computer, :owner1, :myPC)}
   let(:compyC) {FactoryBot.build_stubbed(:computer, :owner1, :myPC, parts: [partA, partB])}
@@ -28,7 +28,7 @@ RSpec.describe Computer, type: :model do
   	  expect(compyB.sizeOf).to eql(2)
     end
     
-    it "can check the compatability of parts inside it" do
+    it "can check the compatibility of parts inside it" do
   	  # good case
   	  compyB.add_part(partA)
   	  compyB.add_part(partB)

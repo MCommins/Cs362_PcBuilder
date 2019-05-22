@@ -21,10 +21,10 @@ class Computer < ApplicationRecord
   
   def valid?(context = nil)
     # uniq is a method on an array that returns unique values
-	# if all parts have the same compatability number, then we
+	# if all parts have the same compatibility number, then we
 	# have a valid PC. if the count of unique vals is greater
 	# than 1, there's a part that isn't compatible.
-    if (self.parts.uniq{|x| x.compatability}.count > 1)
+    if (self.parts.uniq{|x| x.compatibility}.count > 1)
 	  return false
 	end
 	return true
