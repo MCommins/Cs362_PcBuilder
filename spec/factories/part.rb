@@ -2,14 +2,14 @@ FactoryBot.define do
   factory :part do
     name {"fake"}
     part {"part"}
-    compatability {1}
+    compatibility {1}
 
-    trait :compatability2 do
-      compatability {2}
+    trait :compatibility2 do
+      compatibility {2}
     end
 
-    trait :compatability3 do
-      compatability {3}
+    trait :compatibility3 do
+      compatibility {3}
     end
 
     trait :part1 do

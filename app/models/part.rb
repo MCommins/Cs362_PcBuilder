@@ -2,7 +2,9 @@ class Part < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :part, presence: true
-  validates :compatability, presence: true, numericality: { greater_than: 0 }
+  validates :compatibility, presence: true, numericality: { greater_than: 0 }
+
+  belongs_to :account
 
   def compare (parta, partb)
     if(parta == nil || partb == nil)
@@ -14,7 +16,7 @@ class Part < ApplicationRecord
         if(parta.part == part || partb.part == part || parta.part == partb.part)
           return false;
         else
-          if(parta.compatability != compatability || partb.compatability != compatability || parta.compatability != partb.compatability)
+          if(parta.compatibility != compatibility || partb.compatibility != compatibility || parta.compatibility != partb.compatibility)
             return false;
           end
         end
@@ -42,7 +44,7 @@ end
         if(parta.part == part || partb.part == part)
           return false;
         else  
-          if (parta.compatability == compatability && partb.compatability == compatability)
+          if (parta.compatibility == compatibility && partb.compatibility == compatibility)
             return true;
           end
         end
