@@ -1,0 +1,16 @@
+<h1>All Accounts</h1>
+<table>
+  <thead> 
+    <tr>
+      <td> Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account.each do |account| %>
+    <tr>
+      <tr class="account-row" id="<%= dom_id(account) %>">
+      <td class="name"><%= account.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
