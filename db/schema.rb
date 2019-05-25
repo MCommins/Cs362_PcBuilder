@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_070656) do
+ActiveRecord::Schema.define(version: 2019_05_25_024146) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_05_24_070656) do
     t.string "parts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_computers_on_account_id"
   end
 
   create_table "parts", force: :cascade do |t|

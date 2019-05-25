@@ -7,5 +7,7 @@
   <%= t.label(:owner) %>
   <%= t.text_field(:owner) %>
   <br />
+  <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
+  <br />
   <%= t.submit %>
 <% end %>

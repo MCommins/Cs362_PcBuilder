@@ -1,6 +1,11 @@
 class CreatesComputer
   def initialize(params)
     @params = params
+    if params[:account] != ""
+      @params[:account] = Account.find(params[:account])
+    else
+      @params[:account] = nil
+    end
     @success = false
   end
 
