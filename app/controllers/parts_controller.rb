@@ -7,7 +7,8 @@ class PartsController < ApplicationController
     @workflow = CreatesPart.new(
     name: params[:part][:name],
     part: params[:part][:part],
-    compatibility: params[:part][:compatibility]) 
+    compatibility: params[:part][:compatibility],
+    account: params[:part][:account])
     @workflow.create
     if @workflow.success?
       redirect_to parts_path

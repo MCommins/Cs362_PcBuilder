@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "adding parts to the list", type: :system do
+  Account.create
   #happy path
   it "allows the user to add in parts" do
     visit new_part_path
