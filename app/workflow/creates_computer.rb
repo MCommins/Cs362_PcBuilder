@@ -9,7 +9,7 @@ class CreatesComputer
     account = p[:account]
 
     @params = {}
-    @params[:parts] = [part_1, part_2, part_3]
+    @params[:parts] = [part_1, part_2, part_3].compact
     if account != ""
       @params[:account] = Account.find(account)
     else
@@ -36,7 +36,6 @@ class CreatesComputer
 
   def build
     @computer = Computer.new(@params)
-    @computer.parts = []
     @computer
   end
 
