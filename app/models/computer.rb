@@ -4,6 +4,8 @@ class Computer < ApplicationRecord
   #serialize works, validate doesn't. If parts is missing, I get undefined method for the array append (<<)
   validates :parts, presence: true
   serialize :parts
+
+  belongs_to :account
   
   
   def add_part(part)

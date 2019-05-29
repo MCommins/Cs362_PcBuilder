@@ -8,9 +8,7 @@ class ComputersController < ApplicationController
   end
 
   def create
-    @workflow = CreatesComputer.new(
-    name: params[:computer][:name],
-    owner: params[:computer][:owner])
+    @workflow = CreatesComputer.new(params[:computer])
     @workflow.create
     if @workflow.success?
       redirect_to computers_path

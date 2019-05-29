@@ -20,13 +20,13 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Compatibility", with: 3
     click_on("Create Part")
 	
-	visit new_part_path
+  	visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
     fill_in "Compatibility", with: 7
     click_on("Create Part")
 	
-	expect(page).to have_content("AMD Ryzen 2700X")
+	  expect(page).to have_content("AMD Ryzen 2700X")
     expect(page).to have_content("CPU")
     expect(page).to have_content(3)
 	
@@ -52,7 +52,7 @@ RSpec.describe "adding parts to the list", type: :system do
   end
   
   it "does not allow the user to add a nonsensical compatibility number" do
-	visit new_part_path
+	  visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
     fill_in "Compatibility", with: -1
@@ -62,7 +62,7 @@ RSpec.describe "adding parts to the list", type: :system do
   end
   
   it "does not allow the user to add a non-integer compatibility number" do
-	visit new_part_path
+	  visit new_part_path
     fill_in "Name", with: "ASUS X470"
     fill_in "Part", with: "Motherboard"
     fill_in "Compatibility", with: "TEST"
@@ -78,13 +78,29 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Compatibility", with: 7
     click_on("Create Part")
 	
-	visit new_part_path
+  	visit new_part_path
     fill_in "Name", with: "asus x470"
     fill_in "Part", with: "Motherboard"
     fill_in "Compatibility", with: 15
     click_on("Create Part")
 	
 	expect(page).to have_text("prohibited this list from being saved")
+  end
+
+  it "allows the user to identify a part with an account" do
+    visit new_account_path
+    fill_in "Name", with: "Ethan"
+    click_on("Create Account")
+
+    visit new_part_path
+    fill_in "Name", with: "Saphire Tech"
+    fill_in "Part", with: "Graphics Card"
+    fill_in "Compatibility", with: 3
+    select "Ethan", from: "part_account_id"
+    click_on("Create Part")
+    expect(page).to have_content("Saphire Tech")
+    expect(page).to have_content("Graphics Card")
+    expect(page).to have_content(3)
   end
 
 end

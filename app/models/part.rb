@@ -4,6 +4,8 @@ class Part < ApplicationRecord
   validates :part, presence: true
   validates :compatibility, presence: true, numericality: { greater_than: 0 }
 
+  belongs_to :account, optional: true
+
   def compare (parta, partb)
     if(parta == nil || partb == nil)
       return false;

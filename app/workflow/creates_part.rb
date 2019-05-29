@@ -1,15 +1,16 @@
 class CreatesPart
 
-  attr_accessor :name, :part, :compatibility
+  attr_accessor :name, :part, :compatibility, :account
 
-  def initialize(name: "", part: "", compatibility: "")
-    @name = name
-    @part = part
-    @compatibility = compatibility
+  def initialize(params)
+    @name = params[:name]
+    @part = params[:part]
+    @compatibility = params[:compatibility]
+    @account = Account.find(params[:account].to_i) if params[:account]
     @success = false
   end
 
-  def create 
+  def create
     build
     result = part.save
     @success = result
@@ -19,7 +20,7 @@ class CreatesPart
   end
 
   def build
-    self.part = Part.new(name: name, part: part, compatibility: compatibility)
+    self.part = Part.new(name: name, part: part, compatibility: compatibility, account: account)
     part
   end
 end

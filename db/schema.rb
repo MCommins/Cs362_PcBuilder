@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_184300) do
+ActiveRecord::Schema.define(version: 2019_05_25_024146) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parts_id"
+    t.integer "computers_id"
+    t.index ["computers_id"], name: "index_accounts_on_computers_id"
+    t.index ["parts_id"], name: "index_accounts_on_parts_id"
   end
 
   create_table "computers", force: :cascade do |t|
@@ -24,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_05_22_184300) do
     t.string "parts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_computers_on_account_id"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -32,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_05_22_184300) do
     t.integer "compatibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_parts_on_account_id"
   end
 
 end
