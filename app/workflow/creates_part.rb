@@ -1,11 +1,11 @@
 class CreatesPart
 
-  attr_accessor :name, :part, :compatability
+  attr_accessor :name, :part, :compatibility
 
-  def initialize(name: "", part: "", compatability: "")
+  def initialize(name: "", part: "", compatibility: "")
     @name = name
     @part = part
-    @compatability = compatability
+    @compatibility = compatibility
     @success = false
   end
 
@@ -19,7 +19,7 @@ class CreatesPart
   end
 
   def build
-    self.part = Part.new(name: name, part: part, compatability: compatability)
+    self.part = Part.new(name: name, part: part, compatibility: compatibility)
     part
   end
 end

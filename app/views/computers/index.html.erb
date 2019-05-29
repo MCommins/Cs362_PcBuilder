@@ -1,0 +1,15 @@
+<h1>All Computers</h1>
+<table>
+<thead> <tr>
+      <td>Name</td>
+      <td>Owner</td>
+    </tr>
+  </thead>
+  <tbody>
+<% @computers.each do |computer| %>
+<tr class="computer-row" id="<%= dom_id(computer) %>">
+<td class="name"><%= computer.name %></td>
+<td class="owner"><%= computer.owner %></td>
+</tr>
+<% end %> </tbody>
+</table>

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_184300) do
   create_table "parts", force: :cascade do |t|
     t.string "name"
     t.string "part"
-    t.integer "compatability"
+    t.integer "compatibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
