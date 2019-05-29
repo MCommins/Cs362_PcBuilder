@@ -29,6 +29,10 @@ class Part < ApplicationRecord
     big_dependency.execute
     return 42
   end
+
+  def to_s
+    "#{name} (#{part}) [#{compatibility}]"
+  end
   
 end
 
