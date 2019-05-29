@@ -1,20 +1,10 @@
 class CreatesComputer
 
   def initialize(p)
-    part_1 = p[:part_1]
-    part_2 = p[:part_2]
-    part_3 = p[:part_3]
-    name = p[:name]
-    account = p[:account]
-
     @params = {}
-    @params[:parts] = [part_1, part_2, part_3].compact
-    if account != ""
-      @params[:account] = Account.find(account)
-    else
-      @params[:account] = nil
-    end
-    @params[:name] = name
+    @params[:parts] = [p[:part_1], p[:part_2], p[:part_3]].compact
+    @params[:account] = Account.find(p[:account]) unless p[:account] == ""
+    @params[:name] = p[:name]
     @success = false
   end
 
