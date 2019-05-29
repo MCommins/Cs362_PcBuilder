@@ -1,11 +1,22 @@
 class CreatesComputer
-  def initialize(params)
-    @params = params
-    if params[:account] != ""
-      @params[:account] = Account.find(params[:account])
+
+  def initialize(p)
+    part_1 = p[:part_1]
+    part_2 = p[:part_2]
+    part_3 = p[:part_3]
+    name = p[:name]
+    owner = p[:owner]
+    account = p[:account]
+
+    @params = {}
+    @params[:parts] = [part_1, part_2, part_3]
+    if account != ""
+      @params[:account] = Account.find(account)
     else
       @params[:account] = nil
     end
+    @params[:name] = name
+    @params[:owner] = owner
     @success = false
   end
 

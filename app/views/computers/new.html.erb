@@ -9,5 +9,11 @@
   <br />
   <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
   <br />
+  <%= collection_select nil, :part_1, Part.all, :id, :name, prompt: true %>
+  <br />
+  <%= collection_select nil, :part_2, Part.all, :id, :name, prompt: true %>
+  <br />
+  <%= collection_select nil, :part_3, Part.all, :id, :name, prompt: true %>
+  <br />
   <%= t.submit %>
 <% end %>
