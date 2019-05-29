@@ -3,7 +3,7 @@ class CreatesComputer
   def initialize(p)
     @params = {}
     @params[:parts] = [p[:part_1], p[:part_2], p[:part_3]].compact
-    @params[:account] = Account.find(p[:account]) unless p[:account] == ""
+    @params[:account] = Account.find_by(id: p[:account])
     @params[:name] = p[:name]
     @success = false
   end
