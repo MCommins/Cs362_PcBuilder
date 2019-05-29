@@ -5,32 +5,32 @@ class Computer < ApplicationRecord
   serialize :parts
 
   belongs_to :account
-  
-  
+
+
   def add_part(part)
     if part == nil
-	  return "ERROR: Cannot add nothing"
-	end
-	
+      return "ERROR: Cannot add nothing"
+    end
+
     self.parts << part
-	return nil
+    return nil
   end
-  
+
   def sizeOf
     return self.parts.count
   end
-  
+
   def valid?(context = nil)
     # uniq is a method on an array that returns unique values
-	# if all parts have the same compatibility number, then we
-	# have a valid PC. if the count of unique vals is greater
-	# than 1, there's a part that isn't compatible.
+    # if all parts have the same compatibility number, then we
+    # have a valid PC. if the count of unique vals is greater
+    # than 1, there's a part that isn't compatible.
     if (self.parts.uniq{|x| x.compatibility}.count > 1)
-	  return false
-	end
-	return true
+      return false
+    end
+    return true
   end
-  
+
   def performanceCheck(big_dependency)
     big_dependency.execute
     return 69

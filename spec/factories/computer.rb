@@ -11,12 +11,12 @@ FactoryBot.define do
     trait :fakeOwner do
       account { Account.new(name: "FAKE") }
     end
-	
-	trait :myPC do
+
+    trait :myPC do
       name {"My PC"}
     end
-	
-	trait :fakePC do
+
+    trait :fakePC do
       name {"FAKE PC"}
     end
 
