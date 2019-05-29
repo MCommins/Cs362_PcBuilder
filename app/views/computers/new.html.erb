@@ -4,9 +4,6 @@
   <%= t.label(:name) %>
   <%= t.text_field(:name) %>
   <br />
-  <%= t.label(:owner) %>
-  <%= t.text_field(:owner) %>
-  <br />
   <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
   <br />
   <%= collection_select nil, :part_1, Part.all, :id, :name, prompt: true %>

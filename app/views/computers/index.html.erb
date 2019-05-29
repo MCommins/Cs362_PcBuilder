@@ -9,7 +9,7 @@
 <% @computers.each do |computer| %>
 <tr class="computer-row" id="<%= dom_id(computer) %>">
 <td class="name"><%= computer.name %></td>
-<td class="owner"><%= computer.owner %></td>
+<td class="owner"><%= computer.account ? computer.account.name : "Nobody" %></td>
 </tr>
 <% end %> </tbody>
 </table>

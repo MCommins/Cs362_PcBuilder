@@ -5,7 +5,6 @@ class CreatesComputer
     part_2 = p[:part_2]
     part_3 = p[:part_3]
     name = p[:name]
-    owner = p[:owner]
     account = p[:account]
 
     @params = {}
@@ -16,7 +15,6 @@ class CreatesComputer
       @params[:account] = nil
     end
     @params[:name] = name
-    @params[:owner] = owner
     @success = false
   end
 

@@ -9,7 +9,6 @@ RSpec.describe Account, type: :system do
 
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
-    fill_in "Owner", with: "Me"
     select "Ethan"
     click_on("Create Computer")
 
@@ -29,7 +28,6 @@ RSpec.describe Account, type: :system do
 
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
-    fill_in "Owner", with: "Me"
     select "Ethan"
     click_on("Create Computer")
 

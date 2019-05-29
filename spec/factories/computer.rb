@@ -1,15 +1,15 @@
 FactoryBot.define do
   factory :computer do
     name {"a computer"}
-    owner {"person"}
+    account { Account.new }
     parts {[]}
 
     trait :owner1 do
-      owner {"First Owner"}
+      account { Account.new(name: "First") }
     end
 
     trait :fakeOwner do
-      owner {"FAKE OWNER"}
+      account { Account.new(name: "FAKE") }
     end
 	
 	trait :myPC do
