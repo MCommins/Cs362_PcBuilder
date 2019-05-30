@@ -8,13 +8,13 @@
   <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
   <br />
   <%= t.label "Part 1" %>
-  <%= collection_select nil, :part_2, Part.all, :id, :to_s, prompt: true %>
+  <%= collection_select nil, :part_1, Part.all, :id, :to_s, prompt: true %>
   <br />
   <%= t.label "Part 2" %>
   <%= collection_select nil, :part_2, Part.all, :id, :to_s, prompt: true %>
   <br />
   <%= t.label "Part 3" %>
-  <%= collection_select nil, :part_2, Part.all, :id, :to_s, prompt: true %>
+  <%= collection_select nil, :part_3, Part.all, :id, :to_s, prompt: true %>
   <br />
   <%= t.submit %>
 <% end %>
