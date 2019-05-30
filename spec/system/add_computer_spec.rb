@@ -41,7 +41,6 @@ RSpec.describe Computer, type: :system do
     select "Tall obelisk", from: "part_3"
     select "Me"
     click_on("Create Computer")
-
     expect(page).to have_content("Cool Computer")
     expect(page).to have_content("Me")
   end
