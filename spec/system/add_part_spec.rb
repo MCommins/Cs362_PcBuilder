@@ -96,11 +96,12 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Name", with: "Saphire Tech"
     fill_in "Part", with: "Graphics Card"
     fill_in "Compatibility", with: 3
-    select "Ethan", from: "part_account_id"
+    select "Ethan", from: "part_account"
     click_on("Create Part")
     expect(page).to have_content("Saphire Tech")
     expect(page).to have_content("Graphics Card")
     expect(page).to have_content(3)
+    expect(page).to have_content("Ethan")
   end
 
 end

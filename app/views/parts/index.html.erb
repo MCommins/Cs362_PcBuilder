@@ -3,7 +3,8 @@
 <thead> <tr>
       <td> Name</td>
       <td>Type</td>
-      <td>Compatibility </td>
+      <td>Compatibility</td>
+      <td>Owner</td>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,7 @@
 <td class="name"><%= part.name %></td>
 <td class="part"><%= part.part %></td> 
 <td class="compatibility"><%= part.compatibility %></td>
+<td class="owner"><%= part.account ? part.account.name : "Nobody" %>
 </tr>
 <% end %> </tbody>
 </table>

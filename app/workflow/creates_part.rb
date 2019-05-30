@@ -6,7 +6,7 @@ class CreatesPart
     @name = params[:name]
     @part = params[:part]
     @compatibility = params[:compatibility]
-    @account = Account.find(params[:account].to_i) if params[:account]
+    @account = Account.find_by(id: params[:account])
     @success = false
   end
 

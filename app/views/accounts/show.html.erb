@@ -1,5 +1,10 @@
 <ul>
 <% @account.computers.each do |computer| %>
   <li><%= computer.name %></li>
+  <ul>
+  	<% computer.parts.each do |part| %>
+			<li><%= part.name %></li>
+		<% end %>
+	</ul>
 <% end %>
 </ul>
