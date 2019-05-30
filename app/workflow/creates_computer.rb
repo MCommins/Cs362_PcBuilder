@@ -2,7 +2,9 @@ class CreatesComputer
 
   def initialize(p)
     @params = {}
-    @params[:parts] = [p[:part_1], p[:part_2], p[:part_3]].compact
+    @params[:parts] = [p[:part_1], p[:part_2], p[:part_3]]
+      .map{|part| Part.find_by(id: part)}
+      .compact
     @params[:account] = Account.find_by(id: p[:account])
     @params[:name] = p[:name]
     @success = false

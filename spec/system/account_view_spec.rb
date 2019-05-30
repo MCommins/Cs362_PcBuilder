@@ -50,7 +50,7 @@ RSpec.describe Account, type: :system do
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
     select "Ethan"
-    select "Saphire Tech", from: "part_1"
+    select "Saphire Tech", from: "Part 1"
     click_on("Create Computer")
 
     expect(page).to have_content("Saphire Tech")

@@ -36,9 +36,9 @@ RSpec.describe Computer, type: :system do
 
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
-    select "Narrow sieve", from: "part_1"
-    select "Mysterious torus", from: "part_2"
-    select "Tall obelisk", from: "part_3"
+    select "Narrow sieve", from: "Part 1"
+    select "Mysterious torus", from: "Part 2"
+    select "Tall obelisk", from: "Part 3"
     select "Me"
     click_on("Create Computer")
     expect(page).to have_content("Cool Computer")

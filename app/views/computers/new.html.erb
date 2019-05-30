@@ -7,14 +7,14 @@
   <%= t.label(:account) %>
   <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
   <br />
-  <%= t.label "Part 1" %>
-  <%= collection_select nil, :part_1, Part.all, :id, :to_s, prompt: true %>
+  <%= t.label :part_1 %>
+  <%= select_tag "computer[part_1]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
   <br />
-  <%= t.label "Part 2" %>
-  <%= collection_select nil, :part_2, Part.all, :id, :to_s, prompt: true %>
+  <%= t.label :part_2 %>
+  <%= select_tag "computer[part_2]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
   <br />
-  <%= t.label "Part 3" %>
-  <%= collection_select nil, :part_3, Part.all, :id, :to_s, prompt: true %>
+  <%= t.label :part_3 %>
+  <%= select_tag "computer[part_3]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
   <br />
   <%= t.submit %>
 <% end %>
