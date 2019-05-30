@@ -7,9 +7,7 @@ RSpec.describe CreatesComputer do
 
     my_computer = CreatesComputer.new(
       account: me.id,
-      part_1: narrow_sieve,
-      part_2: mysterious_torus,
-      part_3: nil)
+      parts: [narrow_sieve, mysterious_torus])
     my_computer.create
     expect(my_computer.success?).to be true
     expect(my_computer.computer.parts.size).to be 2

@@ -7,14 +7,14 @@
   <%= t.label(:account) %>
   <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
   <br />
-  <%= t.label :part_1 %>
-  <%= select_tag "computer[part_1]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
+  <%= t.label "part_1", "Part 1" %>
+  <%= select_tag "computer[parts][]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}), id: "computer_part_1" %>
   <br />
-  <%= t.label :part_2 %>
-  <%= select_tag "computer[part_2]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
+  <%= t.label "part_2", "Part 2" %>
+  <%= select_tag "computer[parts][]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}), id: "computer_part_2" %>
   <br />
-  <%= t.label :part_3 %>
-  <%= select_tag "computer[part_3]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}) %>
+  <%= t.label "part_3", "Part 3" %>
+  <%= select_tag "computer[parts][]", options_for_select(Part.all.map{|part| [part.to_s, part.id]}), id: "computer_part_3" %>
   <br />
   <%= t.submit %>
 <% end %>
