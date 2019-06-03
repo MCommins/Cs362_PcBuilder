@@ -1,10 +1,17 @@
 class Part < ApplicationRecord
-
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :part, presence: true
   validates :compatibility, presence: true, numericality: { greater_than: 0 }
 
   belongs_to :account, optional: true
+
+  def self.compare_parts(p)
+    return true if not p or p.empty?
+    parts = p.compact
+    #parts.uniq(&:name).size == parts.size &&
+    #  parts.uniq(&:part).size == parts.size &&
+    parts.uniq(&:compatibility).size <= 1
+  end
 
   def compare (parta, partb)
     if(parta == nil || partb == nil)

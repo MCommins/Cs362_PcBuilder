@@ -43,6 +43,11 @@ RSpec.describe Computer, type: :model do
       expect(compyC.sizeOf).to eql(2)
       expect(compyC.valid?).to be_truthy
     end
+
+    it "is valid with no data" do
+      my_computer = Computer.new
+      expect(my_computer).to be_valid
+    end
   end
 
   #to test everything, remove ":focus"
@@ -64,7 +69,7 @@ RSpec.describe Computer, type: :model do
       expect(result).to eql(69)
     end
 
-  it "checks the dependency but with a fake" do
+    it "checks the dependency but with a fake" do
       fakeDependency = double()
       expect(fakeDependency).to receive(:execute).and_return(nil)
       result = compyA.performanceCheck(fakeDependency)

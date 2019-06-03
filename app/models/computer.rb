@@ -1,11 +1,8 @@
 class Computer < ApplicationRecord
-  validates :name, presence: true
-  #serialize works, validate doesn't. If parts is missing, I get undefined method for the array append (<<)
-  validates :parts, presence: true
+  validates :parts, compatible: true
   serialize :parts
 
-  belongs_to :account
-
+  belongs_to :account, optional: true
 
   def add_part(part)
     if part == nil
@@ -18,17 +15,6 @@ class Computer < ApplicationRecord
 
   def sizeOf
     return self.parts.count
-  end
-
-  def valid?(context = nil)
-    # uniq is a method on an array that returns unique values
-    # if all parts have the same compatibility number, then we
-    # have a valid PC. if the count of unique vals is greater
-    # than 1, there's a part that isn't compatible.
-    if (self.parts.uniq{|x| x.compatibility}.count > 1)
-      return false
-    end
-    return true
   end
 
   def performanceCheck(big_dependency)
