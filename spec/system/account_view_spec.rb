@@ -47,13 +47,12 @@ RSpec.describe Account, type: :system do
     fill_in "Compatibility", with: 3
     select "Ethan", from: "part_account"
     click_on("Create Part")
+
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
     select "Ethan"
     select "Saphire Tech", from: "Part 1"
     click_on("Create Computer")
-
-    expect(page).to have_content("Saphire Tech")
 
     visit accounts_path
     click_on "Ethan"
