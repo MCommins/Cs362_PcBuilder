@@ -45,4 +45,72 @@ RSpec.describe Computer, type: :system do
     expect(page).to have_content("Me")
   end
 
+  it "only adds the parts you selected" do
+    visit new_account_path
+    fill_in "Name", with: "Me"
+    click_on("Create Account")
+
+    visit new_part_path
+    fill_in "Name", with: "Narrow sieve"
+    fill_in "Part", with: "Slime processor"
+    fill_in "Compatibility", with: 3
+    click_on("Create Part")
+
+    visit new_part_path
+    fill_in "Name", with: "Mysterious torus"
+    fill_in "Part", with: "Particle collider"
+    fill_in "Compatibility", with: 3
+    click_on("Create Part")
+
+    visit new_part_path
+    fill_in "Name", with: "Tall obelisk"
+    fill_in "Part", with: "Alien antenna"
+    fill_in "Compatibility", with: 3
+    click_on("Create Part")
+
+    visit new_computer_path
+    fill_in "Name", with: "Cool Computer"
+    select "Mysterious torus", from: "Part 2"
+    select "Tall obelisk", from: "Part 3"
+    select "Me"
+    click_on("Create Computer")
+    expect(page).not_to have_content("Narrow sieve")
+    expect(page).to have_content("Mysterious torus")
+    expect(page).to have_content("Tall obelisk")
+  end
+
+
+  it "reports errors if a computer is invalid" do
+    visit new_account_path
+    fill_in "Name", with: "Me"
+    click_on("Create Account")
+
+    visit new_part_path
+    fill_in "Name", with: "Narrow sieve"
+    fill_in "Part", with: "Slime processor"
+    fill_in "Compatibility", with: 1
+    click_on("Create Part")
+
+    visit new_part_path
+    fill_in "Name", with: "Mysterious torus"
+    fill_in "Part", with: "Particle collider"
+    fill_in "Compatibility", with: 2
+    click_on("Create Part")
+
+    visit new_part_path
+    fill_in "Name", with: "Tall obelisk"
+    fill_in "Part", with: "Alien antenna"
+    fill_in "Compatibility", with: 3
+    click_on("Create Part")
+
+    visit new_computer_path
+    fill_in "Name", with: "Cool Computer"
+    select "Narrow sieve", from: "Part 1"
+    select "Mysterious torus", from: "Part 2"
+    select "Tall obelisk", from: "Part 3"
+    select "Me"
+    click_on("Create Computer")
+    expect(page).to have_content("error")
+  end
+
 end
