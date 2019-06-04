@@ -13,6 +13,10 @@ class Computer < ApplicationRecord
     return nil
   end
 
+  def parts_compatible?
+    Part.compatible?(parts)
+  end
+
   def sizeOf
     return self.parts.count
   end

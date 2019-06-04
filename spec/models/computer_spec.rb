@@ -26,6 +26,7 @@ RSpec.describe Computer, type: :model do
       compyB.add_part(partA)
       compyB.add_part(partA)
       expect(compyB.sizeOf).to eql(2)
+      expect(compyB).to be_valid
     end
 
     it "can check the compatibility of parts inside it" do
