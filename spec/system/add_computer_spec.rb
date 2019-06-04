@@ -5,6 +5,7 @@ RSpec.describe Computer, type: :system do
     fill_in "Part", with: "Graphics Card"
     fill_in "Compatibility", with: 3
     click_on("Create Part")
+
     visit new_computer_path
     fill_in "Name", with: "Cool Computer"
     click_on("Create Computer")
@@ -12,9 +13,6 @@ RSpec.describe Computer, type: :system do
   end
 
   it "allows making a computer with many different parts" do
-    visit new_account_path
-    fill_in "Name", with: "Me"
-    click_on("Create Account")
 
     visit new_part_path
     fill_in "Name", with: "Narrow sieve"
@@ -39,10 +37,11 @@ RSpec.describe Computer, type: :system do
     select "Narrow sieve", from: "Part 1"
     select "Mysterious torus", from: "Part 2"
     select "Tall obelisk", from: "Part 3"
-    select "Me"
     click_on("Create Computer")
-    expect(page).to have_content("Cool Computer")
-    expect(page).to have_content("Me")
+
+    expect(page).to have_content("Narrow sieve")
+    expect(page).to have_content("Mysterious torus")
+    expect(page).to have_content("Tall obelisk")
   end
 
   it "only adds the parts you selected" do
@@ -113,4 +112,16 @@ RSpec.describe Computer, type: :system do
     expect(page).to have_content("error")
   end
 
+  it "allows a computer to be made that is owned by an account" do
+      visit new_account_path
+      fill_in "Name", with: "Me"
+      click_on("Create Account")
+
+      visit new_computer_path
+      fill_in "Name", with: "Cool Computer"
+      select "Me"
+      click_on("Create Computer")
+
+      expect(page).to have_content("Me")
+  end
 end
