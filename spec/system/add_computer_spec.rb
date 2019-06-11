@@ -113,15 +113,15 @@ RSpec.describe Computer, type: :system do
   end
 
   it "allows a computer to be made that is owned by an account" do
-      visit new_account_path
-      fill_in "Name", with: "Me"
-      click_on("Create Account")
+    visit new_account_path
+    fill_in "Name", with: "Me"
+    click_on("Create Account")
 
-      visit new_computer_path
-      fill_in "Name", with: "Cool Computer"
-      select "Me"
-      click_on("Create Computer")
+    visit new_computer_path
+    fill_in "Name", with: "Cool Computer"
+    select "Me"
+    click_on("Create Computer")
 
-      expect(page).to have_content("Me")
+    expect(page).to have_content("Me")
   end
 end
