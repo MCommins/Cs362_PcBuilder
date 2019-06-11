@@ -48,7 +48,7 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Part", with: ""
     click_on("Create Part")
     #byebug
-    expect(page).to have_text("prohibited this list from being saved")
+    expect(page).to have_text("prohibited this part from being saved")
   end
 
   it "does not allow the user to add a nonsensical compatibility number" do
@@ -58,7 +58,7 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Compatibility", with: -1
     click_on("Create Part")
 
-    expect(page).to have_text("prohibited this list from being saved")
+    expect(page).to have_text("prohibited this part from being saved")
   end
 
   it "does not allow the user to add a non-integer compatibility number" do
@@ -68,7 +68,7 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Compatibility", with: "TEST"
     click_on("Create Part")
 
-    expect(page).to have_text("prohibited this list from being saved")
+    expect(page).to have_text("prohibited this part from being saved")
   end
 
   it "doesn't allow duplicate parts" do
@@ -84,7 +84,7 @@ RSpec.describe "adding parts to the list", type: :system do
     fill_in "Compatibility", with: 15
     click_on("Create Part")
 
-  expect(page).to have_text("prohibited this list from being saved")
+  expect(page).to have_text("prohibited this part from being saved")
   end
 
   it "allows the user to identify a part with an account" do
