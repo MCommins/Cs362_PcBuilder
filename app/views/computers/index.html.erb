@@ -1,19 +1,24 @@
 <h1>All Computers</h1>
 <table>
-<thead> <tr>
+
+  <thead>
+    <tr>
       <td>Name</td>
       <td>Owner</td>
       <td>Parts</td>
     </tr>
   </thead>
+
   <tbody>
-<% @computers.each do |computer| %>
-<tr class="computer-row" id="<%= dom_id(computer) %>">
-<td class="name"><%= computer.name %></td>
-<td class="owner"><%= computer.account ? computer.account.name : "Nobody" %></td>
-<% computer.parts.each do |part| %>
-<td><%= part.name %></td>
-<% end %>
-</tr>
-<% end %> </tbody>
+  <% @computers.each do |computer| %>
+    <tr class="computer-row" id="<%= dom_id(computer) %>">
+      <td class="name"><%= computer.name %></td>
+      <td class="owner"><%= computer.account ? computer.account.name : "Nobody" %></td>
+      <td class="parts">
+        <%= computer.parts.map(&:name).join(", ") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
 </table>
