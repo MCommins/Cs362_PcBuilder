@@ -49,6 +49,20 @@ RSpec.describe Computer, type: :model do
       my_computer = Computer.new
       expect(my_computer).to be_valid
     end
+
+    it "is invalid if its parts are incompatible" do
+      expect(compyA).to be_valid
+      compyA.parts << partA
+      compyA.parts << partC
+      expect(compyA).to be_invalid
+    end
+
+    it "is valid if its parts are compatible" do
+      expect(compyA).to be_valid
+      compyA.parts << partA
+      compyA.parts << partB
+      expect(compyA).to be_valid
+    end
   end
 
   #to test everything, remove ":focus"
