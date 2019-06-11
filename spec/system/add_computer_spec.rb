@@ -124,4 +124,10 @@ RSpec.describe Computer, type: :system do
 
     expect(page).to have_content("Me")
   end
+
+  it "lists computers with no associated account as owned by 'Nobody'" do
+    visit new_computer_path
+    click_on("Create Computer")
+    expect(page).to have_content("Nobody")
+  end
 end
