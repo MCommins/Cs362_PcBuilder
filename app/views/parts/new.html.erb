@@ -17,7 +17,7 @@
     <%= t.text_field(:part) %>
     <br />
     <%= t.label(:compatibility) %>
-    <%= t.text_field(:compatibility) %>
+    <%= t.number_field(:compatibility) %>
     <br />
     <%= t.collection_select :account, Account.all, :id, :name, prompt: true %>
     <%= t.submit %>
